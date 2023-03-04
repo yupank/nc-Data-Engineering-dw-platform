@@ -49,7 +49,7 @@ __Warehouse Database__: The Warehouse credentials are stored in the AWS Secrets 
 
 ## Makefile
 
-The makefile will setup the relevant environment and also install dependencies from the 'requirements.txt' file. ????How is it ran????
+The makefile will setup the relevant environment and also install dependencies from the 'requirements.txt' file. 
 
 
 ## Conclusion
