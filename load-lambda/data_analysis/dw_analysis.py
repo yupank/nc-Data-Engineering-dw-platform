@@ -27,13 +27,15 @@ def connect():
     wrh_engine = sa.create_engine(wrh_url).connect()
     return wrh_engine
 
-conn = connect()
+# conn = connect()
 
-def load_dw_table(conn, table_name=''):
+def load_dw_table(table_name=''):
     df = None
     if len(table_name) > 1:
-        query = text(f'SELECT * FROM {table_name} LIMIT 20')
-        df = pd.read_sql_query(query,conn)
+        path = f"./data_csv/{table_name}.csv"
+        # query = text(f'SELECT * FROM {table_name} LIMIT 20')
+        # df = pd.read_sql_query(query,conn)
+        df = pd.read_csv(path)
         print(df.head(5))
     return df
 #load_dw_table (conn, table_name='dim_design')
@@ -115,4 +117,7 @@ def plot_design_popularity(dw_conn):
     plt.show()
     pass
 # plot_sales_by_time(conn,category='day')
-plot_design_popularity(conn)
+#plot_design_popularity(conn)
+
+load_dw_table('dim_design')
+load_dw_table('fact_sales_order')
